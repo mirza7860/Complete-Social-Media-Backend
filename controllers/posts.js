@@ -3,7 +3,6 @@ import User from "../models/User.js";
 
 // createPost,getFeedPosts,getUserPosts,likePost
 
-
 // CREATE
 export const createPost = async (req, res) => {
   try {
@@ -54,14 +53,21 @@ export const getUserPosts = async (req, res) => {
 export const likePost = async (req, res) => {
   try {
     const { id } = req.params;
-    const { userId } = req.body;
+    const userId = req.header("userId");
     const post = await Post.findById(id);
-    const isLiked = post.likes.get(userId);
+    if (!userId) {
+      return res.status(400).json({ message: "User ID header is missing" });
+    }
+    if (!post) {
+      return res.status(404).json({ message: "Post not found" });
+    }
 
-    if (isLiked) {
-      post.likes.delete(userId);
+    const userIdString = userId.toString();
+
+    if (post.likes.has(userIdString)) {
+      post.likes.delete(userIdString);
     } else {
-      post.likes.set(userId, true);
+      post.likes.set(userIdString, true);
     }
 
     const updatedPost = await Post.findByIdAndUpdate(
@@ -69,19 +75,8 @@ export const likePost = async (req, res) => {
       { likes: post.likes },
       { new: true }
     );
-    res.status(200).json(updatedPost)
+    res.status(200).json(updatedPost);
   } catch (err) {
     res.status(404).json({ message: err.message });
   }
 };
-
-
-
-
-
-
-
-
-
-
-
