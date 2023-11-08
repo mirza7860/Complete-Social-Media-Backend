@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/assets/style.css">
+    <title>Your Web App Routes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        td a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        td:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Your Web App Routes and Functionality</h1>
+    <table>
+        <tr>
+            <th>Route</th>
+            <th>Middleware</th>
+            <th>Data from Request</th>
+            <th>Response</th>
+        </tr>
+        <tr>
+            <td><a href="/auth/register">POST /auth/register</a></td>
+            <td>Middleware: None</td>
+            <td>Data from Request: User registration details</td>
+            <td>Response: User registration status</td>
+        </tr>
+        <tr>
+            <td><a href="/auth/login">POST /auth/login</a></td>
+            <td>Middleware: None</td>
+            <td>Data from Request: User login credentials</td>
+            <td>Response: Authentication status</td>
+        </tr>
+        <tr>
+            <td><a href="/posts">POST /posts</a></td>
+            <td>Middleware: Authentication required</td>
+            <td>Data from Request: New post details</td>
+            <td>Response: Post creation status and feed posts</td>
+        </tr>
+        <tr>
+            <td><a href="/posts/:userId/posts">POST /posts/:userId/posts</a></td>
+            <td>Middleware: Authentication required</td>
+            <td>Data from Request: userId</td>
+            <td>Response: Single User Posts</td>
+        </tr>
+        <tr>
+            <td><a href="/posts/:id">POST /posts/:userId/posts</a></td>
+            <td>Middleware: Authentication required</td>
+            <td>Data from Request: ViewersId</td>
+            <td>Response: Likes</td>
+        </tr>
+        <tr>
+            <td><a href="/user/:id">GET /user/:id</a></td>
+            <td>Middleware: Authentication required </td>
+            <td>Data from Request: User ID</td>
+            <td>Response: User information</td>
+        </tr>
+        <tr>
+            <td><a href="/user/:id/friends">GET /user/:id/friends</a></td>
+            <td>Middleware: Authentication required</td>
+            <td>Data from Request: User ID</td>
+            <td>Response: List of user's friends</td>
+        </tr>
+        <tr>
+            <td><a href="/user/:id/:friend">PATCH /user/:id/:friend </a></td>
+            <td>Middleware: Authentication required</td>
+            <td>Data from Request: User ID, Friend ID</td>
+            <td>Response: Updated user's friend list</td>
+        </tr>
+    </table>
+</body>
+
+</html>
