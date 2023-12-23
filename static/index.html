@@ -121,7 +121,7 @@
     allevent.forEach(element => {
         element.addEventListener('mouseover', (e) => {
             const getValue = e.target.textContent;
-            dynamicUrl.innerHTML = `BaseURL: <a href="http://localhost:4000" class="dynamic">http://localhost:4000${getValue}</a>`;
+            dynamicUrl.innerHTML = `<a href="http://localhost:4000" class="dynamic">http://localhost:4000${getValue}</a>`;
         });
     });
 </script>
