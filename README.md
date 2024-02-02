@@ -57,6 +57,7 @@ Provide an overview of your project's folder structure. For example:
 - `controllers`: Contains controller functions.
 - `middleware`: Contains middleware functions.
 - `models`: Contains data models.
+- `Code structure`: Implementing production ready code structure . 
 ## Contributing
 
 I welcome contributions from the community. If you'd like to contribute, please follow these steps:
@@ -69,7 +70,7 @@ I welcome contributions from the community. If you'd like to contribute, please 
 
 ## Suggestions
 ## What can you do ?
-features like
+features like     
 1. Nested comments
 2. Infinite scroll like facebook
 3. Pagination on single user posts
